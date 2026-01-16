@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIs Boas pra Comer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍕 APIs Boas pra Comer</h1>
+            <p>Explore dados de múltiplas APIs públicas</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="posts">Posts</button>
+            <button class="tab-btn" data-tab="users">Usuários</button>
+            <button class="tab-btn" data-tab="pokemon">Pokémon</button>
+            <button class="tab-btn" data-tab="weather">Clima</button>
+        </nav>
+
+        <!-- Posts Tab -->
+        <div id="posts" class="tab-content active">
+            <h2>Posts - JSONPlaceholder</h2>
+            <div class="controls">
+                <input type="number" id="postId" min="1" max="100" placeholder="ID do post (1-100)" value="1">
+                <button onclick="app.fetchPost()">Buscar Post</button>
+                <button onclick="app.fetchAllPosts()">Buscar 5 Primeiros</button>
+            </div>
+            <div id="posts-container" class="results-container"></div>
+        </div>
+
+        <!-- Users Tab -->
+        <div id="users" class="tab-content">
+            <h2>Usuários - JSONPlaceholder</h2>
+            <div class="controls">
+                <button onclick="app.fetchAllUsers()">Carregar Usuários</button>
+                <input type="search" id="searchUsers" placeholder="Filtrar por nome..." style="margin-left: 10px;">
+            </div>
+            <div id="users-container" class="results-container"></div>
+        </div>
+
+        <!-- Pokemon Tab -->
+        <div id="pokemon" class="tab-content">
+            <h2>Pokémon - PokeAPI</h2>
+            <div class="controls">
+                <input type="text" id="pokemonName" placeholder="Nome ou ID do Pokémon" value="pikachu">
+                <button onclick="app.fetchPokemon()">Buscar Pokémon</button>
+                <button onclick="app.fetchRandomPokemon()">Aleatório</button>
+            </div>
+            <div id="pokemon-container" class="results-container"></div>
+        </div>
+
+        <!-- Weather Tab -->
+        <div id="weather" class="tab-content">
+            <h2>Clima - OpenWeatherMap</h2>
+            <div class="controls">
+                <input type="text" id="cityName" placeholder="Cidade (ex: São Paulo)" value="São Paulo">
+                <button onclick="app.fetchWeather()">Buscar Clima</button>
+            </div>
+            <div id="weather-container" class="results-container"></div>
+        </div>
+
+        <footer>
+            <p>APIs públicas integradas • JSONPlaceholder • PokeAPI • OpenWeatherMap</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
